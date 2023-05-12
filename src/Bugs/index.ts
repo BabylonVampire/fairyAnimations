@@ -11,4 +11,4 @@ const spawnBugs = (amount: number, parent_element_class: string) => {
 	}
 }
 
-export default spawnBugs;
+export { spawnBugs };

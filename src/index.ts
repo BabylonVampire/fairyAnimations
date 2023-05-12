@@ -1,7 +1,2 @@
-import spawnBugs from "./Bugs/index.js";
-import spawnSparks from "./Sparks/index.js";
-
-export {
-	spawnBugs,
-	spawnSparks
-}
+export * from "./Bugs/index.js";
+export * from "./Sparks/index.js";

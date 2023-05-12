@@ -12,4 +12,4 @@ const spawnSparks = (amount: number, class_name: string) => {
 	}
 }
 
-export default spawnSparks;
+export { spawnSparks };
