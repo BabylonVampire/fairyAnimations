@@ -1,0 +1,14 @@
+{
+	"name": "fairy-anims",
+	"type": "module",
+	"version": "1.1.2",
+	"scripts": {
+		"build": "tsc -p .",
+		"start": "ts-node --esm ./src/index.ts"
+	},
+	"devDependencies": {
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.4"
+	}
+	
+}
