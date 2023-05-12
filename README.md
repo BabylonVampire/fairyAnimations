@@ -106,31 +106,61 @@ And also place the container with fireflies at the same level of nesting in the 
 ## Lines
 Fills the screen with lines floating in different directions.
 
-The function `runningLines()` takes the number of lines (as **number**), the name of the html-element class (as **string**)
+The function `runningLines()` takes:
+1. Array of strings (**string[]**)
+2. the number of lines (as **number**);
+3. the name of the html-element class (as **string**);
+4. options: 
+	```ts
+	{
+		shadow: boolean; //drop shadow
+		repeat: boolean; //repeat animation or play once
+		speedRange: [number, number]; //time of animation in ms
+		fontSizeRange: [number, number]; //in rem
+		color: string; //font color
+	}
+	```
 
 You are free to use this library both in vanilla JS (TS) and with **React**
 
 *Vanilla example:*
 ```js
-	import { spawnSparks } from 'fairy-anims/src';
+	import { runningLines } from 'fairy-anims/src';
 
-	spawnSparks(10, 'spark_container');
+	const options = {
+		shadow: true; //drop shadow
+		repeat: true; //repeat animation or play once
+		speedRange: [2000, 4000]; //time of animation in ms
+		fontSizeRange: [1, 2.5]; //in rem
+		color: '#fff'; //font color
+	}
+
+	runningLines(['hello', 'world'], 10, 'lines_container', options);
 ```
 
 *React example:*
 
 ```tsx
 	import { FC } from 'react';
-	import { spawnSparks } from 'fairy-anims/src';
+	import { runningLines } from 'fairy-anims/src';
 
-	const WitchBurning: FC = () => {
+	const RunningLines: FC = () => {
+
+		const options = {
+			shadow: true; //drop shadow
+			repeat: true; //repeat animation or play once
+			speedRange: [2000, 4000]; //time of animation in ms
+			fontSizeRange: [1, 2.5]; //in rem
+			color: '#fff'; //font color
+		}
+
 		useEffect(() => {
-			spawnSparks(10, 'spark_container')
+			runningLines(['hello', 'world'], 10, 'lines_container', options)
 		}, [])
 
 		return(
 			<div className="parent_element">
-				<div className="spark_container" />
+				<div className="lines_container" />
 			<div>
 		)
 	}
@@ -138,7 +168,7 @@ You are free to use this library both in vanilla JS (TS) and with **React**
 
 Also, for correct display, the parent element must have such CSS styles:
 ```css
-	.spark_container {
+	.lines_container {
 		position: relative;
 		overflow: hidden; //Recomended
 	}
