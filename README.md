@@ -102,3 +102,54 @@ And also place the container with fireflies at the same level of nesting in the 
 ```
 *Preview*
 ![Sparks](./previews/sparks.gif)
+
+## Lines
+Fills the screen with lines floating in different directions.
+
+The function `runningLines()` takes the number of lines (as **number**), the name of the html-element class (as **string**)
+
+You are free to use this library both in vanilla JS (TS) and with **React**
+
+*Vanilla example:*
+```js
+	import { spawnSparks } from 'fairy-anims/src';
+
+	spawnSparks(10, 'spark_container');
+```
+
+*React example:*
+
+```tsx
+	import { FC } from 'react';
+	import { spawnSparks } from 'fairy-anims/src';
+
+	const WitchBurning: FC = () => {
+		useEffect(() => {
+			spawnSparks(10, 'spark_container')
+		}, [])
+
+		return(
+			<div className="parent_element">
+				<div className="spark_container" />
+			<div>
+		)
+	}
+```
+
+Also, for correct display, the parent element must have such CSS styles:
+```css
+	.spark_container {
+		position: relative;
+		overflow: hidden; //Recomended
+	}
+```
+And also place the container with fireflies at the same level of nesting in the DOM tree with the element needed to fill. In addition, the parent element must not have the following CSS styles to avoid rendering issues:
+
+```css
+	.parent_element {
+		justify-content: center;
+		align-items: center;
+	}
+```
+*Preview*
+![Sparks](./previews/lines.gif)
