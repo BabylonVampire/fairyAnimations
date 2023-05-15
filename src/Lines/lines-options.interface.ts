@@ -4,4 +4,5 @@ export interface ILinesOptions {
 	speedRange: [number, number];
 	fontSizeRange: [number, number];
 	color: string;
+	lineDirection: string;
 }

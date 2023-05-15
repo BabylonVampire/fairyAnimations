@@ -1,4 +1,6 @@
-import Line from "./Line";
+// Copyright (c) 2023 Tabalov Nikita
+// This project is licensed under the MIT License
+import Line from "./Line.js";
 import { ILinesOptions } from "./lines-options.interface";
 
 class Lines {

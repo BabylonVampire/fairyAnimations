@@ -118,6 +118,7 @@ The function `runningLines()` takes:
 		speedRange: [number, number]; //time of animation in ms
 		fontSizeRange: [number, number]; //in rem
 		color: string; //font color
+		lineDirection: 'any'; //direction of line movement ('any', 'horizontal', 'vertical')
 	}
 	```
 
@@ -133,6 +134,7 @@ You are free to use this library both in vanilla JS (TS) and with **React**
 		speedRange: [2000, 4000]; //time of animation in ms
 		fontSizeRange: [1, 2.5]; //in rem
 		color: '#fff'; //font color
+		lineDirection: 'any'; //direction of line movement ('any', 'horizontal', 'vertical')
 	}
 
 	runningLines(['hello', 'world'], 10, 'lines_container', options);
@@ -152,6 +154,7 @@ You are free to use this library both in vanilla JS (TS) and with **React**
 			speedRange: [2000, 4000]; //time of animation in ms
 			fontSizeRange: [1, 2.5]; //in rem
 			color: '#fff'; //font color
+			lineDirection: 'any'; //direction of line movement ('any', 'horizontal', 'vertical')
 		}
 
 		useEffect(() => {
@@ -183,3 +186,78 @@ And also place the container with fireflies at the same level of nesting in the 
 ```
 *Preview*
 ![Sparks](./previews/lines.gif)
+## Stars
+Fills the screen with shining stars. You can use it as a background.
+
+The function `setSky()` takes:
+1. the number of stars (as **number**);
+2. the name of the html-element class (as **string**);
+3. options: 
+	```ts
+	{
+		starsColor: string; //Color of stars
+		starsSizeRange: [number, number]; //size range in px
+		starsShiningSpeedRange: [number, number]; //range of animation time in ms
+	}
+	```
+
+You are free to use this library both in vanilla JS (TS) and with **React**
+
+*Vanilla example:*
+```js
+	import { setSky } from 'fairy-anims/src';
+
+	const options = {
+		starsColor: '#fff'; //Color of stars
+		starsSizeRange: [1, 3]; //size range in px
+		starsShiningSpeedRange: [1000, 2000]; //range of animation time in ms
+	}
+
+	setSky(500, 'sky', options);
+```
+
+*React example:*
+
+```tsx
+	import { FC } from 'react';
+	import { runningLines } from 'fairy-anims/src';
+
+	const RunningLines: FC = () => {
+
+		const options = {
+			shadow: true; //drop shadow
+			repeat: true; //repeat animation or play once
+			speedRange: [2000, 4000]; //time of animation in ms
+			fontSizeRange: [1, 2.5]; //in rem
+			color: '#fff'; //font color
+		}
+
+		useEffect(() => {
+			setSky(500, 'sky', options)
+		}, [])
+
+		return(
+			<div className="parent_element">
+				<div className="sky" />
+			<div>
+		)
+	}
+```
+
+Also, for correct display, the parent element must have such CSS styles:
+```css
+	.lines_container {
+		position: relative;
+		overflow: hidden; //Recomended
+	}
+```
+And also place the container with fireflies at the same level of nesting in the DOM tree with the element needed to fill. In addition, the parent element must not have the following CSS styles to avoid rendering issues:
+
+```css
+	.parent_element {
+		justify-content: center;
+		align-items: center;
+	}
+```
+*Preview*
+![Sparks](./previews/stars.gif)
