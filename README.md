@@ -220,16 +220,14 @@ You are free to use this library both in vanilla JS (TS) and with **React**
 
 ```tsx
 	import { FC } from 'react';
-	import { runningLines } from 'fairy-anims/src';
+	import { setSky } from 'fairy-anims/src';
 
-	const RunningLines: FC = () => {
+	const setSky: FC = () => {
 
 		const options = {
-			shadow: true; //drop shadow
-			repeat: true; //repeat animation or play once
-			speedRange: [2000, 4000]; //time of animation in ms
-			fontSizeRange: [1, 2.5]; //in rem
-			color: '#fff'; //font color
+			starsColor: '#fff'; //Color of stars
+			starsSizeRange: [1, 3]; //size range in px
+			starsShiningSpeedRange: [1000, 2000]; //range of animation time in ms
 		}
 
 		useEffect(() => {
